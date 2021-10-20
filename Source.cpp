@@ -146,6 +146,7 @@ int callIntFunc(string proc, int param)
 	return _PyLong_AsInt(presult);
 }
 
+// Adding histogram symbol to quantify amount of each item on list
 void printHistogram() {
 	/* Open frequency.dat */
 	ifstream fin("frequency.dat");
@@ -164,7 +165,7 @@ void printHistogram() {
 	
 }
 
-/* Functions interacting with python file */
+// Functions interacting with python file menu
 void displayMenu() {
 	cout << "**************************************************" << endl;
 	cout << "*************   M A I N   M E N U   **************" << endl;
@@ -180,6 +181,7 @@ void displayMenu() {
 	cout << endl;
 }
 
+// Validates user input and ignores size of frequency.dat int printing on console
 int getUserInt(int min, int max) {
 	int input;
 	cin >> input;
@@ -193,6 +195,7 @@ int getUserInt(int min, int max) {
 	return input;
 }
 
+// Validates user input and ignores size of frequency.dat strings printing on console
 string getUserString() {
 	string input;
 	cin >> input;
@@ -221,6 +224,7 @@ bool getUserConfirmation() {
 	return input == 'y';
 }
 
+// Built a case for each option called when user inputs a valid number
 void userInput() {
 	string item;
 	int input = getUserInt(1, 4);
@@ -245,6 +249,7 @@ void userInput() {
 	}
 }
 
+// Main with calls to Python
 int main()
 {
 	bool cont;
@@ -254,7 +259,7 @@ int main()
 		system("CLS");
 		displayMenu();
 		userInput();
-
+		// Repeats question until user exits the program with 'n'
 		cout << "Would you like to redo reports? (y/n) ";
 		cont = getUserConfirmation();
 		cout << endl;
